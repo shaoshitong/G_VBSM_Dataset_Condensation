@@ -1,0 +1,13 @@
+CUDA_VISIVLE_DEVICES=0 python generate_soft_label_with_db.py \
+    -b 64 \
+    -j 8 \
+    --epochs 1000 \
+    --fkd-seed 42 \
+    --input-size 32 \
+    --min-scale-crops 0.08 \
+    --max-scale-crops 1 \
+    --use-fp16 --candidate-number 5 \
+    --fkd-path ../relabel/FKD_cutmix_fp16FKD_IPC_10 \
+    --mode 'fkd_save' \
+    --mix-type 'cutmix' \
+    --data ../recover/syn_data/GVBSM_CIFAR_100_Recover_IPC_10
