@@ -244,7 +244,7 @@ def save_images(args, images, targets, ipc_ids):
 
         # save into separate folders
         dir_path = '{}/new{:03d}'.format(args.syn_data_path, class_id)
-        place_to_store = dir_path + '/class{:03d}_id{:03d}.jpg'.format(class_id, ipc_id_range[id])
+        place_to_store = dir_path + '/class{:03d}_id{:03d}.png'.format(class_id, ipc_id_range[id])
         if not os.path.exists(dir_path):
             os.makedirs(dir_path, exist_ok=True)
 

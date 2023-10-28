@@ -17,8 +17,13 @@ import torchvision.transforms as transforms
 from torchvision.transforms import InterpolationMode
 from torch.optim.lr_scheduler import LambdaLR
 import torch.multiprocessing as mp
-
+from prefetch_generator import BackgroundGenerator
+from torch.utils.data import DataLoader
 from utils import AverageMeter, accuracy, get_parameters
+
+class DataLoaderX(DataLoader):
+    def __iter__(self):
+        return BackgroundGenerator(super().__iter__())
 
 sys.path.append('../')
 from relabel.utils_fkd import ImageFolder_FKD_MIX, ComposeWithCoords, RandomResizedCropWithCoords, \
@@ -180,11 +185,11 @@ def main_worker(gpu, ngpus_per_node, args):
     generator = torch.Generator()
     generator.manual_seed(args.fkd_seed)
     grad_scaler = torch.cuda.amp.GradScaler()
-    train_loader = torch.utils.data.DataLoader(
+    train_loader = DataLoaderX(
         train_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers, pin_memory=True)
 
     # load validation data
-    val_loader = torch.utils.data.DataLoader(
+    val_loader = DataLoaderX(
         datasets.ImageFolder(args.val_dir, transforms.Compose([
             transforms.Resize(256),
             transforms.CenterCrop(224),

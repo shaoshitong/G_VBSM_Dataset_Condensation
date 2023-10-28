@@ -39,7 +39,7 @@ We empirically suggest that this perspective is not limited to the particular la
 **(7) Based on this, we propose Generalized Various Backbone Statistical Matching (G-VBSM)!**
 
 <div align=left>
-<img style="width:70%" src="./docs/first_presentation.png">
+<img style="width:96%" src="./docs/first_presentation.png">
 </div>
 
 We propose Generalized Various Backbone and Statistical Matching (G-VBSM) in this work, which aims to create a synthetic dataset with densities, ensuring consistency with the complete dataset across numerous backbones, layers, and statistics. As experimentally demonstrated, G-VBSM is the first algorithm to obtain SOTA competitive performance on both toy and large-scale datasets: G-VBSM achieves the highest performance 38.7%, 47.6%, and 31.4% on CIFAR-100, Tiny-ImageNet, and the full 224x224 ImageNet-1k, respectively, under Images Per Class (IPC) 10, 50 and 10, respectively. These results surpass all SOTA methods by margins of 3.9%, 6.5%, and 10.1%, respectively. In particular, we reach the highest accuracy 29.4% and 57.4% on the unseen cross-architecture DeiT-Tiny and Swin-Tiny, respectively, on ImageNet-1k under IPC 50, outperforming the latest SOTA method SRe2L by margins of 14.0% and 18.2%.
@@ -48,7 +48,7 @@ We propose Generalized Various Backbone and Statistical Matching (G-VBSM) in thi
 ## Method
 
 <div align=left>
-<img style="width:70%" src="./docs/dataset_distillation_total_framework.png">
+<img style="width:96%" src="./docs/dataset_distillation_total_framework.png">
 </div>
 
  G-VBSM consists of three core components: 1) Data Densification (DD), 2) Generalized Backbone Matching (GBM), and 3) Generalized Statistical Matching (GSM). In essence, G-VBSM first employs the lightweight regularization strategy DD to ensure both the diversity and density of the distilled dataset. Consequently, GBM and GSM are utilized to achieve "local-match-global" across various backbones, layers, and statistical forms, adopting the "generalized matching" perspective.
@@ -58,13 +58,13 @@ We propose Generalized Various Backbone and Statistical Matching (G-VBSM) in thi
 ### ImageNet-1k and Tiny-ImageNet:
 
 <div align=left>
-<img style="width:70%" src="./docs/imagenet_1k_and_tiny_imagenet.png">
+<img style="width:96%" src="./docs/imagenet_1k_and_tiny_imagenet.png">
 </div>
 
 ### CIFAR-10 and CIFAR-100:
 
 <div align=left>
-<img style="width:70%" src="./docs/cifar_10_and_100.png">
+<img style="width:96%" src="./docs/cifar_10_and_100.png">
 </div>
 
 ### Cross-Architecture Generalization:
@@ -157,18 +157,18 @@ Note that CIFAR-10/100 can be downloadeded by torchvision's API. Meanwhile, Imag
 
 **(3) Compared with code in SRe2L, we have made some improvements:**
 
-* [x] Data synthesis and evaluation phases can be trained in parallel.
-* [x] Remove the configuration that the random number `seed` must be the same in soft label generation and evaluation phases.
-* [x] Accuracy presentation on the training set is added in soft label generation phase.
-* [x] The storage image format is changed from `jpg` to `png` because `jpg` is lossy compressed. However, this change did not change the accuracy of SRe2L and G-VBSM.
-* [x] Add `DataLoaderX` in [ImageNet-1k-Evaluation](.\Branch_full_ImageNet_1k\train\train_FKD_parallel.py) to accelerate training in evaluation phase.
-* [x] TIMM package was added to evaluate on the unseen cross-architecture models `DeiT-Tiny` and `Swin-Tiny`.
+- [x] Data synthesis and evaluation phases can be trained in parallel.
+- [x] Remove the configuration that the random number `seed` must be the same in soft label generation and evaluation phases.
+- [x] Accuracy presentation on the training set is added in soft label generation phase.
+- [x] The storage image format is changed from `jpg` to `png` because `jpg` is lossy compressed. However, this change did not change the accuracy of SRe2L and G-VBSM.
+- [x] Add `DataLoaderX` in [ImageNet-1k-Evaluation](.\Branch_full_ImageNet_1k\train\train_FKD_parallel.py) to accelerate training in evaluation phase.
+- [x] TIMM package was added to evaluate on the unseen cross-architecture models `DeiT-Tiny` and `Swin-Tiny`.
 
 **(4) In the future, what will we do?**
 
-* [] Add the t-SNE and grid image visualization code.
-* [] Fix some possible bugs.
-* [] An algorithm will be designed to prune not important statistics to further ensure efficiency.
+- [ ] Add the t-SNE and grid image visualization code.
+- [ ] Fix some possible bugs.
+- [ ] An algorithm will be designed to prune not important statistics to further ensure efficiency.
 
 
 
