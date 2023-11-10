@@ -6,7 +6,7 @@ Offical Implementation of paper:
 
 Authors:
 
->**<em>Shitong Shao, Zeyuan Yin, Xindong Zhang</em> and <em>Zhiqiang Shen*</em>** <br>
+>**<em>Shitong Shao, Zeyuan Yin, Muxin Zhou, Xindong Zhang</em> and <em>Zhiqiang Shen*</em>** <br>
 > MBZUAI, Polyu and OPPO <br>
 > *: Corresponding author
 
@@ -51,7 +51,7 @@ We propose Generalized Various Backbone and Statistical Matching (G-VBSM) in thi
 <img style="width:96%" src="./docs/dataset_distillation_total_framework.png">
 </div>
 
- G-VBSM consists of three core components: 1) Data Densification (DD), 2) Generalized Backbone Matching (GBM), and 3) Generalized Statistical Matching (GSM). In essence, G-VBSM first employs the lightweight regularization strategy DD to ensure both the diversity and density of the distilled dataset. Consequently, GBM and GSM are utilized to achieve "local-match-global" across various backbones, layers, and statistical forms, adopting the "generalized matching" perspective.
+ G-VBSM consists of three core components: 1) Data Densification (DD), 2) Generalized Backbone Matching (GBM), and 3) Generalized Statistical Matching (GSM). In essence, G-VBSM employs the lightweight regularization strategy data densification (DD) to ensure both the diversity and density of the distilled dataset, ensuring that the potential of "generalized matching" can be fully exploited. Moreover, generalized backbone matching (GBM) and generalized statistical matching (GSM) are utilized to achieve "generalized matching" by performing "local-match-global" matching across various backbones, layers, and statistics.
 
 ## Experiment
 
@@ -112,7 +112,7 @@ cd ../train
 bash ./train.sh # (Evaluation Phase)
 ```
 
-The code in each subfolder is essentially the same, modified only according to the corresponding dataset for ease of management.
+**Note**: The code in each subfolder is essentially the same, modified only according to the corresponding dataset for ease of management.
 
 ### Details
 
@@ -171,7 +171,6 @@ Note that CIFAR-10/100 can be downloadeded by torchvision's API. Meanwhile, Imag
 - [ ] An algorithm will be designed to prune not important statistics to further ensure efficiency.
 
 
-
 ### Open Distilled Datasets
 
 | Dataset\IPC | 1 | 10 | 50 | 100 |
@@ -209,7 +208,7 @@ Our code based on SRe2L, MTT and Good-DA-in-KD:
 @inproceedings{wang2022what,
   author = {Huan Wang and Suhas Lohit and Michael Jones and Yun Fu},
   title = {What Makes a "Good" Data Augmentation in Knowledge Distillation -- A Statistical Perspective},
-  booktitle = {NeurIPS},
+  booktitle = {Neural Information Processing Systems},
   year = {2022}
 }
 
@@ -217,7 +216,7 @@ Our code based on SRe2L, MTT and Good-DA-in-KD:
 cazenavette2022distillation,
 title={Dataset Distillation by Matching Training Trajectories},
 author={George Cazenavette and Tongzhou Wang and Antonio Torralba and Alexei A. Efros and Jun-Yan Zhu},
-booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+booktitle={Computer Vision and Pattern Recognition},
 year={2022}
 }
 ```
