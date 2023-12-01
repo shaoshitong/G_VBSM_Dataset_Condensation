@@ -22,19 +22,19 @@ This is due to the overly expensive computational overhead of data synthesis. To
 
 **(3) So are the above mentioned algorithms the only solutions for Data Condensation?**
 
-No! Recently, SRe2L accomplished data condensation for the first time on the full 224x224 ImageNet-1k, achieving Top-1 validation accuracy 21.3% with ResNet18 under IPC 10. This method outperformed the latest state-of-the-art TESLA, which conducted on a low-resolution version of ImageNet-1k, by being 16x faster and improved performance by a margin of 13.6%. SRe2L is inspired by DeepInversion and aims to match statistics in BatchNorm generated from synthetic and real data. Meanwhile, it uses pre-trained models to obtain soft label to avoid the distilled dataset overfitting in the evaluation phase. This approach brings a novel perspective on Data Condensation.
+No. Recently, SRe2L accomplished data condensation for the first time on the full 224x224 ImageNet-1k, achieving Top-1 validation accuracy 21.3% with ResNet18 under IPC 10. This method outperformed the latest state-of-the-art TESLA, which conducted on a low-resolution version of ImageNet-1k, by being 16x faster and improved performance by a margin of 13.6%. SRe2L is inspired by DeepInversion and aims to match statistics in BatchNorm generated from synthetic and real data. Meanwhile, it uses pre-trained models to obtain soft label to avoid the distilled dataset overfitting in the evaluation phase. This approach brings a novel perspective on Data Condensation.
 
 **(4) Why can SRe2L be successful?**
 
 SRe2L is essentially a data-free knowledge distillation algorithm, yet it is both effective and efficient on the full 224x224 ImageNet-1k. We suggest that SRe2L's core idea is perfroming "local-match-global" through BatchNorm. The "local-match-global" refers to utilizing more comprehensive information (<em>e.g.</em>, statistics in BatchNorm), generated from the model using the complete dataset (global), to guide the parameter update of the distilled dataset (local).
 
-**(5) However, SRe2L cannot achieve the SOTA competitive on CIFAR-100. Is this "local-match-global" format inferior to traditional algorithms?**
+**(5) However, SRe2L cannot achieve the SOTA competitive on CIFAR-100. Meanwhile, SRe2L may have the potential for further performance improvements. Is this "local-match-global" format inferior to traditional algorithms?**
 
-No! The efficiency of SRe2L cannot be matched by traditional methods. Since one efficient "local-match-global" matching is not enough, let's have two, three, or even countless! Until it outperforms traditional methods on CIFAR-100 with the traditional benchmark (which guarantees the model and the same number of epochs for evaluation).
+No. The efficiency of SRe2L cannot be matched by traditional methods. Since one efficient "local-match-global" matching is not enough, let's have two, three, or even countless! Until it outperforms traditional methods on CIFAR-100 with the traditional benchmark (which guarantees the model and the same number of epochs for evaluation). In addition, the generalization ability of the distilled dataset on ImageNet-1k will be further improved.
 
 **(6) Therefore, we think Data Condensation just needs to follow "local-match-global".**
 
-We empirically suggest that this perspective is not limited to the particular layer (<em>i.e.</em>, BatchNorm), model (<em>i.e.</em>, ResNet18), and statistical form (<em>i.e.</em>, channel mean and channel variance) used by SRe2L. Clearly, the distilled dataset is likely to perform consistently with the complete dataset on the evaluation model, provided there are sufficiently various matching statistical forms, backbone, and layers. We call this perspective as "generalized matching" and suggest that sufficient plain and lightweight "local-match-global" matching can achieve and even surpass almost all traditional precise, yet single and expensive matching while remaining efficient.
+We empirically suggest that this perspective is not limited to the particular layer (<em>i.e.</em>, BatchNorm), model (<em>i.e.</em>, ResNet18), and statistical form (<em>i.e.</em>, channel mean and channel variance) used by SRe2L. Clearly, the distilled dataset is likely to perform consistently with the complete dataset on the evaluation model, provided there are sufficiently various matching statistical forms, backbone, and layers. We call this perspective as "generalized matching" and suggest that sufficient lightweight "local-match-global" matching can achieve and even surpass almost all traditional precise, yet single and expensive matching while remaining efficient.
 
 **(7) Based on this, we propose Generalized Various Backbone Statistical Matching (G-VBSM)!**
 
@@ -188,10 +188,11 @@ The baidu cloud's password is `2023`.
 If you find our code useful for your research, please cite our paper.
 
 ```
-@inproceedings{shao2023generalized,
+@article{shao2023generalized,
 	title = {Generalized Large-Scale Data Condensation via Various Backbone and Statistical Matching},
 	author = {Shitong Shao, Zeyuan Yin, Xindong Zhang and Zhiqiang Shen},
-	year = {2023}
+	year = {2023},
+    journal={arXiv preprint arXiv:2311.17950},
 }
 ```
 

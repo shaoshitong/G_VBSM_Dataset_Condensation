@@ -277,7 +277,7 @@ def validate(input, target, model):
 
 def main_syn():
     parser = argparse.ArgumentParser(
-        "SRe2L: recover data from pre-trained model")
+        "G-VBSM: applying generalized matching for data condensation")
     """Data save flags"""
     parser.add_argument('--exp-name', type=str, default='test',
                         help='name of the experiment, subfolder under syn_data_path')
