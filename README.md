@@ -2,7 +2,7 @@
 
 Offical Implementation of paper:
 
-> **Generalized Large-Scale Data Condensation via Various Backbone and Statistical Matching** <br>
+> **[Generalized Large-Scale Data Condensation via Various Backbone and Statistical Matching](https://arxiv.org/abs/2311.17950)** <br>
 
 Authors:
 
