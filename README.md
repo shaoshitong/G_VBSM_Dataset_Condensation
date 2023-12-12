@@ -160,7 +160,6 @@ Note that CIFAR-10/100 can be downloadeded by torchvision's API. Meanwhile, Imag
 - [x] Data synthesis and evaluation phases can be trained in parallel.
 - [x] Remove the configuration that the random number `seed` must be the same in soft label generation and evaluation phases.
 - [x] Accuracy presentation on the training set is added in soft label generation phase.
-- [x] The storage image format is changed from `jpg` to `png` because `jpg` is lossy compressed. However, this change did not change the accuracy of SRe2L and G-VBSM.
 - [x] Add `DataLoaderX` in [ImageNet-1k-Evaluation](.\Branch_full_ImageNet_1k\train\train_FKD_parallel.py) to accelerate training in evaluation phase.
 - [x] TIMM package was added to evaluate on the unseen cross-architecture models `DeiT-Tiny` and `Swin-Tiny`.
 
@@ -192,7 +191,7 @@ If you find our code useful for your research, please cite our paper.
 	title = {Generalized Large-Scale Data Condensation via Various Backbone and Statistical Matching},
 	author = {Shitong Shao, Zeyuan Yin, Xindong Zhang and Zhiqiang Shen},
 	year = {2023},
-    journal={arXiv preprint arXiv:2311.17950},
+    journal = {arXiv preprint arXiv:2311.17950},
 }
 ```
 
@@ -207,17 +206,17 @@ Our code based on SRe2L, MTT and Good-DA-in-KD:
 }
 
 @inproceedings{wang2022what,
-  author = {Huan Wang and Suhas Lohit and Michael Jones and Yun Fu},
-  title = {What Makes a "Good" Data Augmentation in Knowledge Distillation -- A Statistical Perspective},
-  booktitle = {Neural Information Processing Systems},
-  year = {2022}
+    author = {Huan Wang and Suhas Lohit and Michael Jones and Yun Fu},
+    title = {What Makes a "Good" Data Augmentation in Knowledge Distillation -- A Statistical Perspective},
+    booktitle = {Neural Information Processing Systems},
+    year = {2022}
 }
 
 @inproceedings{
 cazenavette2022distillation,
-title={Dataset Distillation by Matching Training Trajectories},
-author={George Cazenavette and Tongzhou Wang and Antonio Torralba and Alexei A. Efros and Jun-Yan Zhu},
-booktitle={Computer Vision and Pattern Recognition},
-year={2022}
+    title = {Dataset Distillation by Matching Training Trajectories},
+    author = {George Cazenavette and Tongzhou Wang and Antonio Torralba and Alexei A. Efros and Jun-Yan Zhu},
+    booktitle = {Computer Vision and Pattern Recognition},
+    year = {2022}
 }
 ```
