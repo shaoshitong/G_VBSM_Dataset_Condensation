@@ -1,6 +1,6 @@
 # G-VBSM
 
-Offical Implementation of paper:
+Offical Implementation of our CVPR 2024 paper:
 
 > **[Generalized Large-Scale Data Condensation via Various Backbone and Statistical Matching](https://arxiv.org/abs/2311.17950)** <br>
 
