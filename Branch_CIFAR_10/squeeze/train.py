@@ -118,7 +118,7 @@ def main(args):
     
         top_1_acc = round(total_acc * 100 / total_number,3)
         print(f"Epoch: {e}, Top-1 Accuracy: {top_1_acc}%")
-        if e % 10 == 0:
+        if e % 10 == 0 or e == args.train_epochs - 1:
             state_dict = model.state_dict()
             torch.save(state_dict,os.path.join(save_dir,f"squeeze_{args.model}.pth"))
 
